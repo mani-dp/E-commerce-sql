@@ -3,9 +3,9 @@ import { addFavorite, getUserFavorites, removeFavorite } from "../controllers/fa
 
 const favoriteRouter = express.Router();
 
-favoriteRouter.use("/", addFavorite);
 favoriteRouter.use('/', getUserFavorites);
-favoriteRouter.use('/', removeFavorite);
+favoriteRouter.use("/:user_id", addFavorite);
+favoriteRouter.use('/:user_id/product/:product_id', removeFavorite);
 
 
 export default favoriteRouter;
