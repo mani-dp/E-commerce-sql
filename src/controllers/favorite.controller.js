@@ -63,7 +63,7 @@ export const removeFavorite = async (request, response, next) => {
              AND product_id = $2
              RETURNING *`, [user_id, product_id],
         );
-        if (result.rows === 0) {
+        if (result.rows.length === 0) {
             return response.status(404).json({
                 success: false,
                 message: "Favorite not found",

@@ -100,7 +100,7 @@ export const deleteCategory = async (req, res, next) => {
              RETURNING *`,
             [id]
         );
-        if (result.rows === 0) {
+        if (result.rows.length === 0) {
             return res.status(404).json({
                 success: false,
                 message: "Category not found"
