@@ -1,7 +1,7 @@
 import { body } from "express-validator";
 
-const registerValidator = [
-     body("name")
+export const registerValidator = [
+    body("name")
         .trim()
         .notEmpty()
         .withMessage("Name is required"),
@@ -13,6 +13,16 @@ const registerValidator = [
     body("password")
         .isLength({ min: 6 })
         .withMessage("Password must be at least 6 characters"),
-]
+];
 
-export default registerValidator;
+export const loginValidator = [
+    body("email")
+        .isEmail()
+        .withMessage("Invalid email"),
+
+    body("password")
+        .notEmpty()
+        .withMessage("Password is required"),
+
+];
+
