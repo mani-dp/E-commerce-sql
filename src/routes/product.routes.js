@@ -4,6 +4,7 @@ import { authMiddleware } from '../middleware/auth.middleware.js';
 import { adminMiddleware } from '../middleware/admin.middleware.js';
 import { createProductValidator } from '../validators/product.validator.js';
 import { validate } from '../middleware/validation.middleware.js';
+import { uploadProductImage } from "../middleware/upload.middleware.js";
 
 const productRouter = express.Router();
 
@@ -16,6 +17,7 @@ productRouter.post(
     adminMiddleware,
     createProductValidator,
     validate,
+    uploadProductImage,
     createProduct
 );
 
